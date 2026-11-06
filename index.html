@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Our Courses | YSSE Main Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header Section (Section 5 Guidelines) -->
+  <header class="site-header">
+    <div class="container">
+      <div class="brand-badge">YSSE Main Portal · Course System</div>
+      <h1 class="main-heading">Explore Our Courses</h1>
+      <p class="sub-heading">
+        Enhance your practical skills with industry-focused courses across technology, design, marketing, and data science. Search and filter below to find the right course for your career journey.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Search & Filter Controls Section (Sections 3B, 3C, 3D, 3F & 10) -->
+    <section class="controls-wrapper" aria-label="Course Search and Filters">
+      <div class="controls-grid">
+        
+        <!-- Search Input -->
+        <div class="control-box search-box">
+          <label for="searchInput">Search by Title or Keyword</label>
+          <div class="input-wrapper">
+            <span class="search-icon">🔍</span>
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="e.g. Web, Python, Design..." 
+              autocomplete="off"
+            >
+          </div>
+        </div>
+
+        <!-- Category Dropdown -->
+        <div class="control-box">
+          <label for="categoryFilter">Category</label>
+          <select id="categoryFilter">
+            <option value="All Categories">All Categories</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Programming">Programming</option>
+            <option value="Graphic Design">Graphic Design</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Data Science">Data Science</option>
+          </select>
+        </div>
+
+        <!-- Difficulty Level Dropdown -->
+        <div class="control-box">
+          <label for="levelFilter">Difficulty Level</label>
+          <select id="levelFilter">
+            <option value="All Levels">All Levels</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
+
+        <!-- Optional Bonus Challenge: Sorting -->
+        <div class="control-box">
+          <label for="sortSelect">Sort Courses By</label>
+          <select id="sortSelect">
+            <option value="default">Default Order</option>
+            <option value="title-asc">Title (A – Z)</option>
+            <option value="title-desc">Title (Z – A)</option>
+            <option value="duration-asc">Duration (Shortest First)</option>
+            <option value="duration-desc">Duration (Longest First)</option>
+          </select>
+        </div>
+
+        <!-- Clear / Reset Button -->
+        <div class="control-box action-box">
+          <button type="button" id="resetBtn" class="btn-reset">
+            Reset Filters
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Status Bar / Live Result Counter (Section 10 Bonus) -->
+    <div class="status-bar">
+      <p id="resultCounter" class="result-counter">Showing all courses</p>
+      <div id="activeFilterTags" class="active-tags"></div>
+    </div>
+
+    <!-- Course Cards Grid (Section 3A & 6) -->
+    <section id="courseContainer" class="course-grid" aria-live="polite">
+      <!-- Dynamically populated by JavaScript -->
+    </section>
+
+    <!-- Friendly No-Results Message (Section 3G) -->
+    <section id="noResultsMessage" class="no-results hidden">
+      <div class="empty-icon">📂</div>
+      <h2>No courses found. Try changing your search or filters.</h2>
+      <p>We couldn't find any courses matching all of your selected criteria.</p>
+      <button type="button" id="showAllBtn" class="btn-primary">Show All Courses</button>
+    </section>
+  </main>
+
+  <!-- Course Details Modal Popup (Section 10 Additional Challenge) -->
+  <div id="courseModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button type="button" id="closeModalBtn" class="modal-close" aria-label="Close modal">&times;</button>
+      <img id="modalImage" src="" alt="" class="modal-img">
+      <div class="modal-content">
+        <div class="modal-badges">
+          <span id="modalCategory" class="badge-category"></span>
+          <span id="modalLevel" class="badge-level"></span>
+          <span id="modalDuration" class="badge-duration"></span>
+        </div>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+        <div class="modal-footer">
+          <button type="button" id="enrollModalBtn" class="btn-primary">Enroll in Course</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 YSSE IT Department · Web Development & CMS Wing · Week 5 Assignment</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
